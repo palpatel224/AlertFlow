@@ -2,9 +2,17 @@
   "name": "alertflow",
   "version": "1.0.0",
   "description": "",
-  "main": "scrapeAndAnalyze.js",
+  "main": "scrape.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "scrape": "node scrape.js",
+    "test": "node test.js",
+    "test-firebase": "node test-firebase.js",
+    "firebase-help": "node firebase-setup-helper.js",
+    "dev": "nodemon server.js",
+    "dev-with-scrape": "ENABLE_AUTO_SCRAPE=true nodemon server.js",
+    "setup": "node setup.js",
+    "firebase-setup": "node firebase-setup.js"
   },
   "keywords": [],
   "author": "",
@@ -12,7 +20,12 @@
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
     "axios": "^1.9.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.5.0",
-    "puppeteer": "^24.9.0"
+    "express": "^5.1.0",
+    "firebase-admin": "^13.4.0",
+    "nodemon": "^3.1.10",
+    "puppeteer": "^24.9.0",
+    "uuid": "^11.1.0"
   }
 }

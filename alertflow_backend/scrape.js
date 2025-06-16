@@ -1,7 +1,8 @@
 const puppeteer = require('puppeteer');
 const { queryGemini } = require('./geminiResponse');
 
-(async () => {
+async function runScraping() {
+  console.log('🔍 Starting earthquake data scraping...');
   const browser = await puppeteer.launch({ 
     headless: true, 
     defaultViewport: null,
@@ -56,12 +57,22 @@ const { queryGemini } = require('./geminiResponse');
     earthquakes.forEach((eq, i) => {
       console.log(`${i + 1}. ${eq}`);
     });
-    console.log(" Sending to Gemini...");
+    console.log("📡 Sending to Gemini...");
     await queryGemini(earthquakes.join('\n'));
+    console.log("✅ Scraping completed successfully!");
 
   } catch (err) {
-    console.error('Error:', err);
+    console.error('❌ Scraping error:', err);
+    throw err;
   } finally {
     await browser.close();
   }
-})();
+}
+
+// Export the function for use in other modules
+module.exports = { runScraping };
+
+// If this file is run directly, execute the scraping
+if (require.main === module) {
+  runScraping().catch(console.error);
+}
