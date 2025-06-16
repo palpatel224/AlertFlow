@@ -1,0 +1,19 @@
+﻿id: run_web_scraper
+namespace: alertflow
+
+tasks:
+  - id: run_scraper
+    warningOnStdErr: false
+    type: io.kestra.plugin.scripts.node.Commands
+   
+    taskRunner:
+      type: io.kestra.plugin.scripts.runner.docker.Docker
+    containerImage: imd-scraper:latest
+    env:
+      GEMINI_API_KEY: AIzaSyAX932dVoLuCLcr_EGe4nDi4Dwv1Y9AP6U
+    commands:
+      - "echo Gemini Key: $GEMINI_API_KEY"
+      - node /home/pptruser/app/scrape.js
+
+    
+

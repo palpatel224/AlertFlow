@@ -1,0 +1,38 @@
+﻿
+
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: kestra
+      POSTGRES_PASSWORD: kestra
+      POSTGRES_DB: kestra
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  kestra:
+    image: kestra/kestra:latest-full
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"   # Kestra Web UI
+      - "8081:8081"
+      - "5681:5681"   # Kestra API
+    environment:
+      - KESTRA_CONFIGURATION=kestra.yml
+      - KESTRA_REPOSITORY_TYPE=postgres
+      - KESTRA_STORAGE_TYPE=local
+      - KESTRA_QUEUE_TYPE=memory
+    volumes:
+      - ./kestra.yml:/app/config.yml
+      - ./flows:/app/flows
+      - kestra-data:/app/storage
+      
+      
+    #  - ./kestra/flows:/AlertFlow/alertflow_kestra/flows  # Mount your flows
+    command: server standalone
+    working_dir: /app
+volumes:
+  pgdata:
+  kestra-data:

@@ -1,0 +1,11 @@
+﻿kestra:
+  repository:
+    type: postgres
+    postgres:
+      url: jdbc:postgresql://postgres:5432/kestra
+      user: kestra
+      password: kestra
+
+  server:
+    basic-auth:
+      enabled: false

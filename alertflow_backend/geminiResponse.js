@@ -3,6 +3,8 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
+
+
 async function queryGemini(aggregatedText) {
   const prompt = `
   You are given weather/disaster information from IMD's official website.
