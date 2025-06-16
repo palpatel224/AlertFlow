@@ -45,5 +45,11 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>AlertFlow needs location access to show nearby disaster alerts and emergency information relevant to your area.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>AlertFlow needs location access to provide timely disaster alerts and emergency notifications even when the app is in background.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>AlertFlow needs background location access to send you critical disaster alerts and emergency notifications even when the app is not active.</string>
 </dict>
 </plist>

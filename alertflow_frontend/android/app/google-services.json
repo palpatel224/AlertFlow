@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "224982843189",
+    "project_id": "alertflow-9b044",
+    "storage_bucket": "alertflow-9b044.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:224982843189:android:7d712a685218143106167c",
+        "android_client_info": {
+          "package_name": "com.example.alertflow_frontend"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcQ_Xa5uRJUmSJlqyJKob4CLojckXU3qg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
